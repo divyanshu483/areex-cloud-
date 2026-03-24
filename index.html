@@ -135,7 +135,6 @@ function joinDiscord(){
   window.open("https://discord.gg/28bTYfPZJE","_blank");
 }
 
-// SIMPLE & SAFE NAV LOGIC (NO SYNTAX ISSUES)
 window.addEventListener("scroll", function(){
   var homeLink = document.getElementById("homeLink");
   var servicesLink = document.getElementById("servicesLink");
@@ -157,8 +156,6 @@ window.addEventListener("scroll", function(){
     aboutLink.classList.add("active");
   }
 });
-// removed scroll function (now using separate page));
-}
 
 function openQR(){
   document.getElementById("qrModal").style.display="flex";
@@ -166,7 +163,6 @@ function openQR(){
 
 function closeQR(){
   document.getElementById("qrModal").style.display="none";
-});
 }
 </script>
 
