@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Areex Cloud - Budget Plans</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{background:radial-gradient(circle at top,#140021,#050816);color:#fff}
+
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px 10%;background:rgba(10,0,20,0.6);backdrop-filter:blur(12px)}
+nav h1{color:#ff00cc;display:flex;align-items:center;gap:10px}
+nav img{width:35px;height:35px;border-radius:8px}
+nav a{color:#fff;text-decoration:none;margin-left:20px}
+nav a:hover{color:#ff00cc}
+
+.section{padding:80px 10%;text-align:center}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px;margin-top:40px}
+
+.card{
+background:#140021;
+padding:25px;
+border-radius:15px;
+transition:0.3s;
+position:relative;
+overflow:hidden;
+cursor:pointer;
+}
+
+.card::before{
+content:"";
+position:absolute;
+top:0;
+left:-100%;
+width:100%;
+height:100%;
+background:linear-gradient(120deg,transparent,#ff00cc55,transparent);
+transition:0.5s;
+}
+
+.card:hover::before{left:100%}
+.card:hover{transform:translateY(-10px);box-shadow:0 0 20px #ff00cc}
+
+.card h3{color:#ff00cc;margin-bottom:10px}
+
+/* QR MODAL */
+#qrModal{
+display:none;
+position:fixed;
+top:0;left:0;
+width:100%;height:100%;
+background:rgba(0,0,0,0.8);
+justify-content:center;
+align-items:center;
+z-index:1000;
+}
+
+.modal-box{
+background:#140021;
+padding:25px;
+border-radius:15px;
+text-align:center;
+}
+
+button{
+padding:10px 20px;
+border:none;
+background:#ff00cc;
+color:#fff;
+border-radius:20px;
+cursor:pointer;
+margin-top:10px;
+}
+
+footer{text-align:center;padding:20px;background:#050816;margin-top:50px}
+</style>
+</head>
+<body>
+
+<nav>
+<h1><img src="https://cdn.discordapp.com/attachments/1484256530210619394/1486041757333328022/IMG_20260316_121526_805.webp">Areex Cloud</h1>
+<div>
+<a href="index.html">Home</a>
+</div>
+</nav>
+
+<div class="section">
+<h2>Budget Plans</h2>
+<p>Click any plan to purchase</p>
+
+<div class="cards">
+<div class="card" onclick="openQR()"><h3>Trial - ₹19</h3><p>256MB RAM<br>100% CPU<br>50Mbps<br>5GB</p></div>
+<div class="card" onclick="openQR()"><h3>Nano - ₹29</h3><p>512MB RAM<br>100% CPU<br>100Mbps<br>10GB</p></div>
+<div class="card" onclick="openQR()"><h3>Micro - ₹49</h3><p>1GB RAM<br>100% CPU<br>100Mbps<br>20GB</p></div>
+<div class="card" onclick="openQR()"><h3>Mini - ₹79</h3><p>2GB RAM<br>150% CPU<br>500Mbps<br>30GB</p></div>
+<div class="card" onclick="openQR()"><h3>Standard - ₹99</h3><p>4GB RAM<br>200% CPU<br>500Mbps<br>50GB</p></div>
+<div class="card" onclick="openQR()"><h3>Max - ₹149</h3><p>8GB RAM<br>300% CPU<br>1Gbps<br>80GB</p></div>
+<div class="card" onclick="openQR()"><h3>Sudopodia - ₹250</h3><p>16GB RAM<br>450% CPU<br>1Gbps<br>100GB</p></div>
+</div>
+</div>
+
+<!-- QR MODAL -->
+<div id="qrModal">
+<div class="modal-box">
+<h3 style="color:#ff00cc">Scan to Pay</h3>
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi://pay?pa=yourupi@upi" alt="QR">
+<p>Pay & then create a ticket in Discord</p>
+<button onclick="closeQR()">Close</button>
+</div>
+</div>
+
+<footer>
+<p>© 2026 Areex Cloud</p>
+</footer>
+
+<script>
+function openQR(){
+document.getElementById("qrModal").style.display="flex";
+}
+
+function closeQR(){
+document.getElementById("qrModal").style.display="none";
+}
+</script>
+
+</body>
+</html>
