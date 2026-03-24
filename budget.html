@@ -61,6 +61,7 @@ background:#140021;
 padding:25px;
 border-radius:15px;
 text-align:center;
+max-width:300px;
 }
 
 button{
@@ -73,13 +74,23 @@ cursor:pointer;
 margin-top:10px;
 }
 
+.discord-btn{
+display:inline-block;
+margin-top:10px;
+padding:10px 20px;
+background:#5865F2;
+color:#fff;
+border-radius:20px;
+text-decoration:none;
+}
+
 footer{text-align:center;padding:20px;background:#050816;margin-top:50px}
 </style>
 </head>
 <body>
 
 <nav>
-<h1><img src="https://cdn.discordapp.com/attachments/1484256530210619394/1486041757333328022/IMG_20260316_121526_805.webp">Areex Cloud</h1>
+<h1><img src="icon.jpg">Areex Cloud</h1>
 <div>
 <a href="index.html">Home</a>
 </div>
@@ -104,8 +115,10 @@ footer{text-align:center;padding:20px;background:#050816;margin-top:50px}
 <div id="qrModal">
 <div class="modal-box">
 <h3 style="color:#ff00cc">Scan to Pay</h3>
-<img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi://pay?pa=yourupi@upi" alt="QR">
-<p>Pay & then create a ticket in Discord</p>
+<img src="upi.jpg" alt="QR" style="width:200px;margin:10px 0;">
+<p>Pay to purchase the plan.<br>After payment, create a ticket in Discord.</p>
+<a href="https://discord.gg/YOUR_INVITE_LINK" target="_blank" class="discord-btn">Open Discord</a>
+<br>
 <button onclick="closeQR()">Close</button>
 </div>
 </div>
