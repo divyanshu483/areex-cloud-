@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Areex Cloud</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{background:radial-gradient(circle at top,#140021,#050816);color:#fff;overflow-x:hidden}
+
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px 10%;background:rgba(10,0,20,0.6);backdrop-filter:blur(12px);position:fixed;width:100%;top:0;z-index:1000}
+nav h1{color:#ff00cc;display:flex;align-items:center;gap:10px;text-shadow:0 0 10px #ff00cc}
+nav img{width:35px;height:35px;border-radius:8px}
+nav a{color:#fff;margin-left:20px;text-decoration:none;transition:0.3s}
+nav a:hover,nav a.active{color:#ff00cc;text-shadow:0 0 10px #ff00cc}
+
+.hero{height:100vh;display:flex;justify-content:center;align-items:center;flex-direction:column;text-align:center;background:linear-gradient(120deg,#0a0014,#1a0033)}
+.hero h2{font-size:50px;margin-bottom:20px;text-shadow:0 0 20px #ff00cc}
+.hero p{opacity:0.8;margin-bottom:20px}
+.hero button{padding:12px 25px;border:none;background:#ff00cc;color:#fff;cursor:pointer;border-radius:25px;transition:0.3s;box-shadow:0 0 10px #ff00cc}
+.hero button:hover{transform:scale(1.1);box-shadow:0 0 25px #ff00cc,0 0 50px #ff00cc}
+
+.section{padding:100px 10%;text-align:center}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px;margin-top:40px}
+.card{
+background:#140021;
+padding:30px;
+border-radius:15px;
+transition:0.3s;
+position:relative;
+overflow:hidden;
+}
+
+.card::before{
+content:"";
+position:absolute;
+top:0;
+left:-100%;
+width:100%;
+height:100%;
+background:linear-gradient(120deg,transparent,#ff00cc55,transparent);
+transition:0.5s;
+}
+
+.card:hover::before{
+left:100%;
+}
+.card:hover{transform:translateY(-10px);box-shadow:0 0 20px #ff00cc}
+.card h3{margin-bottom:10px;color:#ff00cc;text-shadow:0 0 10px #ff00cc}
+
+footer{text-align:center;padding:20px;background:#050816;color:#aaa}
+</style>
+</head>
+<body>
+
+<nav>
+<h1><img src="https://cdn.discordapp.com/attachments/1484256530210619394/1486041757333328022/IMG_20260316_121526_805.webp" alt="logo">Areex Cloud</h1>
+<div>
+<a href="#" id="homeLink" class="active">Home</a>
+<a href="#services" id="servicesLink">Services</a>
+<a href="#about" id="aboutLink">About</a>
+</div>
+</nav>
+
+<div class="hero" id="home">
+<h2>Welcome to Areex Cloud</h2>
+<p>Powering Minecraft Servers, VPS, Bots & Cloud Solutions</p>
+<button onclick="joinDiscord()">Join Discord</button>
+</div>
+
+<div class="section" id="home-extra">
+<h2>Why Choose Areex Cloud?</h2>
+<div class="cards">
+<div class="card"><h3>₹49/mo</h3><p>Starting price for powerful hosting</p></div>
+<div class="card"><h3>99% Uptime</h3><p>Reliable servers</p></div>
+<div class="card"><h3>24/7 Support</h3><p>Always here to help</p></div>
+<div class="card"><h3>Instant Setup</h3><p>Ready in seconds</p></div>
+</div>
+</div>
+
+<div class="section" id="services">
+<h2>Our Services</h2>
+<div class="cards">
+<div class="card" onclick="scrollToBudget()" style="cursor:pointer"><h3>Budget Plans</h3><p>Affordable hosting plans</p></div>
+<div class="card"><h3>Premium Plans</h3><p>High-performance servers</p></div>
+<div class="card"><h3>VPS Hosting</h3><p>Full control VPS</p></div>
+<div class="card"><h3>Bot Plans</h3><p>Reliable bot hosting</p></div>
+<div class="card"><h3>Domain Plans</h3><p>Affordable domains</p></div>
+</div>
+</div>
+
+<!-- BUDGET PLANS SECTION -->
+<div class="section" id="budget">
+<h2>Areex Cloud - Budget Plans</h2>
+<p>Perfect for small Minecraft communities 🚀</p>
+<div class="cards">
+
+<div class="card" onclick="openQR()" style="cursor:pointer"><h3>Trial - ₹19</h3><p>256MB RAM<br>100% CPU<br>50Mbps<br>5GB Storage<br>1 MySQL</p></div>
+<div class="card" onclick="openQR()" style="cursor:pointer"><h3>Nano - ₹29</h3><p>512MB RAM<br>100% CPU<br>100Mbps<br>10GB Storage<br>1 MySQL</p></div>
+<div class="card" onclick="openQR()" style="cursor:pointer"><h3>Micro - ₹49</h3><p>1GB RAM<br>100% CPU<br>100Mbps<br>20GB Storage<br>2 MySQL</p></div>
+<div class="card" onclick="openQR()" style="cursor:pointer"><h3>Mini - ₹79</h3><p>2GB RAM<br>150% CPU<br>500Mbps<br>30GB Storage<br>Unlimited DB</p></div>
+<div class="card" onclick="openQR()" style="cursor:pointer"><h3>Standard - ₹99</h3><p>4GB RAM<br>200% CPU<br>500Mbps<br>50GB Storage<br>Unlimited DB</p></div>
+<div class="card" onclick="openQR()" style="cursor:pointer"><h3>Max - ₹149</h3><p>8GB RAM<br>300% CPU<br>1Gbps<br>80GB Storage<br>Unlimited DB</p></div>
+<div class="card" onclick="openQR()" style="cursor:pointer"><h3>Sudopodia - ₹250</h3><p>16GB RAM<br>450% CPU<br>1Gbps<br>100GB Storage<br>Unlimited DB</p></div>
+
+</div>
+</div>
+
+<div class="section" id="about">
+<h2>About Areex Cloud</h2>
+<p>🌩️ <b>Welcome to Areex Cloud</b><br><br>
+Hey there! Welcome to Areex Cloud. At Areex Cloud, we make Minecraft hosting easy and budget-friendly. Starting at just <b>₹49/month</b>.</p>
+</div>
+
+<footer>
+<p>© 2026 Areex Cloud</p>
+</footer>
+
+<!-- QR MODAL -->
+<div id="qrModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);justify-content:center;align-items:center;z-index:2000;">
+  <div style="background:#140021;padding:30px;border-radius:15px;text-align:center;max-width:300px;">
+    <h3 style="color:#ff00cc;margin-bottom:15px;">Complete Payment</h3>
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=PAYMENT_LINK" alt="QR" style="margin-bottom:15px;">
+    <p>Pay to purchase the plan<br>After payment, create a ticket in Discord.</p>
+    <br>
+    <button onclick="closeQR()" style="padding:10px 20px;border:none;background:#ff00cc;color:#fff;border-radius:20px;cursor:pointer;">Close</button>
+  </div>
+</div>
+
+<script>
+function joinDiscord(){
+  window.open("https://discord.gg/YOUR_INVITE_LINK","_blank");
+}
+
+// SIMPLE & SAFE NAV LOGIC (NO SYNTAX ISSUES)
+window.addEventListener("scroll", function(){
+  var homeLink = document.getElementById("homeLink");
+  var servicesLink = document.getElementById("servicesLink");
+  var aboutLink = document.getElementById("aboutLink");
+
+  var scrollYPos = window.scrollY;
+  var servicesTop = document.getElementById("services").offsetTop - 200;
+  var aboutTop = document.getElementById("about").offsetTop - 200;
+
+  homeLink.classList.remove("active");
+  servicesLink.classList.remove("active");
+  aboutLink.classList.remove("active");
+
+  if(scrollYPos < servicesTop){
+    homeLink.classList.add("active");
+  } else if(scrollYPos >= servicesTop && scrollYPos < aboutTop){
+    servicesLink.classList.add("active");
+  } else {
+    aboutLink.classList.add("active");
+  }
+});
+function scrollToBudget(){
+  document.getElementById("budget").scrollIntoView({behavior:"smooth"});
+}
+
+function openQR(){
+  document.getElementById("qrModal").style.display="flex";
+}
+
+function closeQR(){
+  document.getElementById("qrModal").style.display="none";
+});
+}
+</script>
+
+</body>
+</html>
